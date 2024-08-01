@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
-  const [acc, setAcc] = useState();
+  const [acc, setAcc] = useState('');
   const [bank, setBank] = useState("");
   const [branch, setBranch] = useState("");
   const [ifsc, setIfsc] = useState("");
@@ -21,7 +21,7 @@ function App() {
   const [ifsc1, setIfsc1] = useState("SBIN0001234");
   const [city1, setCity1] = useState("Almora");
   const [relation1, setRelation1] = useState("Self");
-  const [date1, setDate1] = useState(new Date());
+  const [date1, setDate1] = useState(new Date(2023, 9, 13));
 
   const formatDate = (date) => {
     const months = [
@@ -45,14 +45,37 @@ function App() {
   };
 
   const handleSave = async () => {
-    setName1(name);
-    setAcc1(acc);
-    setBank1(bank);
-    setBranch1(branch);
-    setIfsc1(ifsc);
-    setCity1(city);
-    setRelation1(relation);
-    setDate1(date);
+    if (name) {
+      setName1(name);
+      setName("");
+    }
+    if(acc) {
+      setAcc1(acc);
+      setAcc("");
+    }
+    if (bank) {
+      setBank1(bank);
+      setBank("");
+    }
+    if (branch) {
+      setBranch1(branch);
+      setBranch('');
+    }
+    if (ifsc) {
+      setIfsc1(ifsc);
+      setIfsc('');
+    }
+    if (city) {
+      setCity1(city);
+      setCity('');
+    }
+    if (relation) {
+      setRelation1(relation);
+      setRelation(relation);
+    }
+    if (date) {
+      setDate1(date);
+    }
   };
 
   return (
@@ -310,94 +333,6 @@ function App() {
             </div>
           </div>
 
-          {/* <div className="w-[87%] h-fit p-5 ml-10">
-            <h1 className="font-semibold text-3xl mt-5">Bank Details</h1>
-            <p className="mt-2 text-sm">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Temporibus, labore tenetur? Vel velit dicta, tempora repudiandae
-              doloribus eaque assumenda. Eaque unde minus obcaecati dolor
-              ducimus? Cumque tempore delectus.
-            </p>
-            <div className="form flex flex-col gap-5 mt-8 px-0 md:px-5 sm:px-[12vw] border-2 border-gray-300 p-10">
-              <div className="w-full name flex justify-between items-center px-7">
-                <p className="font-bold text-gray-700">ACCOUNT HOLDER NAME</p>
-                <input
-                  type="text"
-                  value={name1}
-                  className="p-3 rounded-md w-[50%] border-2 border-gray-200 bg-green-50 font-bold"
-                  readOnly
-                />
-              </div>
-              <div className="acc w-full flex justify-between items-center px-7">
-                <p className="font-bold text-gray-700">ACCOUNT NUMBER</p>
-                <input
-                  type="number"
-                  value={acc1}
-                  className="p-3 rounded-md w-[50%] border-2 border-gray-200 bg-green-50 font-bold"
-                  readOnly
-                />
-              </div>
-              <div className="ifsc w-full flex justify-between items-center px-7">
-                <p className="font-bold text-gray-700">IFSC CODE</p>
-                <input
-                  type="text"
-                  value={ifsc1}
-                  className="p-3 rounded-md w-[50%] border-2 border-gray-200 bg-green-50 font-bold"
-                  readOnly
-                />
-              </div>
-              <div className="bank w-full flex justify-between items-center px-7">
-                <p className="font-bold text-gray-700">BANK NAME</p>
-                <input
-                  type="text"
-                  value={bank1}
-                  className="p-3 rounded-md w-[50%] border-2 border-gray-200 bg-green-50 font-bold"
-                  readOnly
-                />
-              </div>
-              <div className="branch w-full flex justify-between items-center px-7">
-                <p className="font-bold text-gray-700">BANK CITY</p>
-                <input
-                  type="text"
-                  value={city1}
-                  className="p-3 rounded-md w-[50%] border-2 border-gray-200 bg-green-50 font-bold"
-                  readOnly
-                />
-              </div>
-              <div className="branch w-full flex justify-between items-center px-7">
-                <p className="font-bold text-gray-700">BRANCH NAME</p>
-                <input
-                  type="text"
-                  value={branch1}
-                  className="p-3 rounded-md w-[50%] border-2 border-gray-200 bg-green-50 font-bold"
-                  readOnly
-                />
-              </div>
-              <div className="branch w-full flex justify-between items-center px-7">
-                <p className="font-bold text-gray-700">
-                  RELATION WITH ACCOUNT HOLDER
-                </p>
-                <input
-                  type="text"
-                  value={relation1}
-                  className="p-3 rounded-md w-[50%] border-2 border-gray-200 bg-green-50 font-bold"
-                  readOnly
-                />
-              </div>
-              <div className="content w-full flex justify-between items-center px-7">
-                <p className="font-bold text-gray-700">CONSENT</p>
-                <div className="gap-4 p-3 rounded-md w-[50%] border-2 border-gray-200">
-                  <p className="text-[15px]">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illo amet assumenda voluptatem?
-                  </p>
-                  <p className="font-bold text-[14px] mt-2">
-                    FILLED ON {formatDate(date1)}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
     </>
